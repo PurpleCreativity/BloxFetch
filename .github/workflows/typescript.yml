@@ -1,0 +1,26 @@
+name: Typescript
+
+on:
+    push:
+        branches-ignore:
+            - release
+    pull_request:
+        branches-ignore:
+            - release
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: ">=22"
+
+            - name: Install Dependencies
+              run: npm install
+
+            - name: Build
+              run: npm run build

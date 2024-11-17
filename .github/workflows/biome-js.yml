@@ -1,0 +1,60 @@
+name: BiomeJS Check
+
+on:
+    push:
+        branches-ignore:
+            - release
+    pull_request:
+        branches-ignore:
+            - release
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ">=22"
+
+            - name: Install Dependencies
+              run: npm install
+
+            - name: Biome Lint
+              run: npm run lint
+
+    formatting:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: ">=22"
+
+            - name: Install Dependencies
+              run: npm install
+
+            - name: Biome Format
+              run: npm run format
+    
+    organized-imports:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: ">=22"
+
+            - name: Install Dependencies
+              run: npm install
+
+            - name: Biome Organized Imports Check
+              run: npm run organized-imports
