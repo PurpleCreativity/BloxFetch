@@ -87,7 +87,7 @@ export default class FetchHandler {
             params: options.params,
             headers: {
                 "X-Csrf-Token": this.credentials.csrf || "",
-                Cookie: this.credentials.cookie ? `.ROBLOSECURITY=${this.credentials.cookie}` : "",
+                Cookie: `.ROBLOSECURITY=${this.credentials.cookie || ""}`,
             },
         });
 
