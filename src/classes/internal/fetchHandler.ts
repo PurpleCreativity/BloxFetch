@@ -1,5 +1,10 @@
-import axios, { AxiosError, type AxiosInstance, type AxiosRequestConfig } from "axios";
-import type { FetchOptions, HttpMethod, ListFetchOptions } from "../../types/fetchHandler.js";
+import axios, { AxiosError, type AxiosResponse, type AxiosInstance, type AxiosRequestConfig } from "axios";
+import type {
+    HttpMethod,
+    LegacyFetchOptions,
+    LegacyListFetchOptions,
+    PaginatedResponse,
+} from "../../types/fetchHandler.js";
 import CacheManager from "./cacheManager.js";
 
 type credentials = {
@@ -62,17 +67,17 @@ export default class FetchHandler {
         this.credentials = { ...this.credentials, ...credentials };
     };
 
-    fetchLegacy = async (
+    async fetchLegacy<T = unknown>(
         method: HttpMethod,
         API: keyof typeof this.LegacyAPI,
         route: string,
-        options: FetchOptions,
-    ): Promise<unknown> => {
+        options: LegacyFetchOptions,
+    ): Promise<T> {
         const URL = this.LegacyAPI[API] + route;
 
         if (options.useCache || options.useCache === undefined) {
             const cached = this.cache.getValues(URL);
-            if (cached) return cached;
+            if (cached) return cached as T;
         }
 
         const response = await this.client.request({
@@ -97,44 +102,41 @@ export default class FetchHandler {
         if (method === "GET") this.cache.setValues(URL, response.data);
 
         return response.data;
-    };
+    }
 
-    fetchLegacyList = async (
+    async fetchLegacyList<T = unknown>(
         method: HttpMethod,
         API: keyof typeof this.LegacyAPI,
         route: string,
-        options: ListFetchOptions,
-    ): Promise<unknown> => {
-        const data = [];
+        options: LegacyListFetchOptions,
+    ): Promise<T[]> {
+        const data: T[] = [];
         let cursor = "";
 
         while (true) {
             try {
-                const response = (await this.fetchLegacy(
+                const response = await this.fetchLegacy<PaginatedResponse<T>>(
                     method,
                     API,
                     `${route}?limit=${options.maxResults || 100}&cursor=${cursor}`,
                     options,
-                )) as {
-                    data: unknown[];
-                    nextPageCursor?: string;
-                };
-                if (!response || !response.data) continue;
-                if (response.data) data.push(...response.data);
+                );
+
+                if (response?.data) {
+                    data.push(...response.data);
+                }
 
                 if (!response.nextPageCursor || data.length >= options.maxResults) break;
                 cursor = response.nextPageCursor;
             } catch (error) {
-                if (error instanceof AxiosError) {
-                    if (error.status === 429) {
-                        await new Promise((resolve) => setTimeout(resolve, 1000));
-                        continue;
-                    }
+                if (error instanceof AxiosError && error.response?.status === 429) {
+                    await new Promise((resolve) => setTimeout(resolve, 1000));
+                    continue;
                 }
                 throw error;
             }
         }
 
         return data;
-    };
+    }
 }
