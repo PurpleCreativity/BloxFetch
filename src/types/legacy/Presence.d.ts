@@ -9,13 +9,13 @@ export enum UserPresenceType {
 export type UserPresence = {
     userPresenceType: UserPresenceType;
     lastLocation: string;
-    placeId: number; // int64
-    rootPlaceId: number; // int64
-    gameId: string; // UUID
-    universeId: number; // int64
+    placeId: number | null; // int64
+    rootPlaceId: number | null; // int64
+    gameId: string | null; // UUID
+    universeId: number | null; // int64
     userId: number; // int64
     lastOnline: Date; // date-string
-    invisibleModeExpiry: Date; // date-string
+    invisibleModeExpiry?: Date; // date-string
 };
 
 export type UserPresencesResponse = {
