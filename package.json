@@ -7,9 +7,12 @@
     "exports": {
         ".": "./dist/main.js"
     },
+    "files": ["dist"],
     "scripts": {
         "build": "tsc",
         "test": "jest",
+        "run": "node .",
+        "start": "tc && node.",
 
         "lint": "biome lint .",
         "lint:fix": "biome lint --write .",
