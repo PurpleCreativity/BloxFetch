@@ -1,4 +1,4 @@
-import type { NumberRange } from "../global.js";
+import type { NumberRange } from "../shared.js";
 
 export type RawGroupData = {
     id: number;
