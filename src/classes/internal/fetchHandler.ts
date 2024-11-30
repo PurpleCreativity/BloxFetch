@@ -17,7 +17,7 @@ export default class FetchHandler {
         csrf: undefined,
     };
 
-    readonly Legacy = {
+    readonly LegacyAPI = {
         Users: "https://users.roblox.com/v1",
         Thumbnails: "https://thumbnails.roblox.com/v1",
         Friends: "https://friends.roblox.com/v1",
@@ -64,11 +64,11 @@ export default class FetchHandler {
 
     fetchLegacy = async (
         method: HttpMethod,
-        baseURL: keyof typeof this.Legacy,
+        API: keyof typeof this.LegacyAPI,
         route: string,
         options: FetchOptions,
     ): Promise<unknown> => {
-        const URL = this.Legacy[baseURL] + route;
+        const URL = this.LegacyAPI[API] + route;
 
         if (options.useCache || options.useCache === undefined) {
             const cached = this.cache.getValues(URL);
@@ -90,7 +90,7 @@ export default class FetchHandler {
             this.setCredentials({ csrf: response.headers["x-csrf-token"] });
 
             if (response.status === 403) {
-                return await this.fetchLegacy(method, baseURL, route, options);
+                return await this.fetchLegacy(method, API, route, options);
             }
         }
 
@@ -101,7 +101,7 @@ export default class FetchHandler {
 
     fetchLegacyList = async (
         method: HttpMethod,
-        baseURL: keyof typeof this.Legacy,
+        API: keyof typeof this.LegacyAPI,
         route: string,
         options: ListFetchOptions,
     ): Promise<unknown> => {
@@ -112,7 +112,7 @@ export default class FetchHandler {
             try {
                 const response = (await this.fetchLegacy(
                     method,
-                    baseURL,
+                    API,
                     `${route}?limit=${options.maxResults || 100}&cursor=${cursor}`,
                     options,
                 )) as {
