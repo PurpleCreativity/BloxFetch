@@ -77,19 +77,23 @@ export type CreatorV2 = {
 
 export type AssetTypeV2 = {
     id: number;
-    type: AssetEnumV2;
+    type: AssetV2;
     name?: string;
 };
 
-export type CreatorTypeV2 = 0 | 1; // User | Group
+export enum CreatorTypeV2 {
+    User = 0,
+    Group = 1,
+}
 
-export type AssetEnumV2 =
-    | 1 // Image
-    | 2 // TShirt
-    | 3 // Audio
-    | 9 // Place
-    | 33 // YouTubeVideo
-    | 83; // Screenshot
+export enum AssetV2 {
+    Image = 1,
+    TShirt = 2,
+    Audio = 3,
+    Place = 9,
+    YouTubeVideo = 33,
+    Screenshot = 83,
+}
 
 // Type Definitions for v2 (Groups API)
 export type GroupResponseV2 = {
