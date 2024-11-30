@@ -1,9 +1,6 @@
 import type BloxFetch from "../../../../main.js";
 import type { LegacyListFetchOptions } from "../../../../types/fetchHandler.js";
-
-export type UsernameHistoryResponse = {
-    name: string;
-};
+import type { UsernameHistoryResponse } from "../../../../types/legacy/Users.js";
 
 export type fetchUsernameHistoryType = (
     this: BloxFetch,
@@ -16,18 +13,18 @@ export default async function (
     userId: number,
     options?: Partial<LegacyListFetchOptions>,
 ): Promise<string[]> {
-    const response = await this.fetchHandler.fetchLegacyList<UsernameHistoryResponse>(
-        "GET",
-        "UsersV1",
-        `/users/${userId}/username-history`,
-        {
-            params: {},
-            body: {},
-            useCache: options?.useCache ?? true,
-            perPage: 100,
-            maxResults: options?.maxResults ?? 100,
-        },
-    );
-
-    return response.map((entry) => entry.name);
+    return (
+        await this.fetchHandler.fetchLegacyList<UsernameHistoryResponse>(
+            "GET",
+            "UsersV1",
+            `/users/${userId}/username-history`,
+            {
+                params: {},
+                body: {},
+                useCache: options?.useCache ?? true,
+                perPage: 100,
+                maxResults: options?.maxResults ?? 100,
+            },
+        )
+    ).map((entry) => entry.name);
 }
