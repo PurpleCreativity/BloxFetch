@@ -1,5 +1,5 @@
-import type BloxFetch from "../../../main.js";
-import type { LegacyListFetchOptions } from "../../../types/fetchHandler.js";
+import type BloxFetch from "../../../../main.js";
+import type { LegacyListFetchOptions } from "../../../../types/fetchHandler.js";
 
 export type UsernameHistoryResponse = {
     name: string;
