@@ -8,6 +8,11 @@ import fetchBirthdate, { type fetchBirthdateType } from "./functions/legacy/user
 
 import fetchUserPresences, { type fetchUserPresencesType } from "./functions/legacy/presence/v1/fetchUserPresences.js";
 
+import fetchUserGroupRoles, {
+    type UserGroupRolesResponse,
+    type fetchUserGroupRolesType,
+} from "./functions/legacy/groups/v2/fetchUserGroupRoles.js";
+
 export type * from "./types/legacy/Users.js";
 export type * from "./types/legacy/Presence.js";
 export type * from "./types/legacy/Games.js";
@@ -21,19 +26,19 @@ export default class BloxFetch {
     //? UsersV1
     readonly fetchUsernameHistory: fetchUsernameHistoryType;
     readonly fetchBirthdate: fetchBirthdateType;
-
     //? PresenceV1
     readonly fetchUserPresences: fetchUserPresencesType;
+    //? Groups
+    readonly fetchUserGroupRoles: fetchUserGroupRolesType;
 
     constructor() {
         this.fetchHandler = new FetchHandler({});
-
+        //? UsersV1
         this.fetchUsernameHistory = fetchUsernameHistory;
         this.fetchBirthdate = fetchBirthdate;
-
+        //? PresenceV1
         this.fetchUserPresences = fetchUserPresences;
+        //? Groups
+        this.fetchUserGroupRoles = fetchUserGroupRoles;
     }
 }
-
-const c = new BloxFetch();
-console.log(await c.fetchUsernameHistory(200565345));

@@ -17,7 +17,6 @@ export type UserGroupRoles = {
         hasVerifiedBadge: boolean;
     };
     role: GroupRole;
-    isNotificationsEnabled: boolean;
 };
 
 export type FriendData = UserData & {
@@ -188,12 +187,6 @@ export type BirthdateRequest = {
     password: string;
 };
 
-export type BirthdateResponse = {
-    birthMonth: number;
-    birthDay: number;
-    birthYear: number;
-};
-
 export type DescriptionRequest = {
     description: string;
 };
@@ -263,8 +256,4 @@ export type UserCountryCodeResponse = {
 
 export type UserRolesResponse = {
     roles: string[];
-};
-
-export type UsernameHistoryResponse = {
-    name: string;
 };

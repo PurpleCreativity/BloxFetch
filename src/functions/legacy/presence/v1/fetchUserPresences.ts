@@ -1,6 +1,10 @@
 import type BloxFetch from "../../../../main.js";
 import type { LegacyFetchOptions } from "../../../../types/fetchHandler.js";
-import type { UserPresence, UserPresencesResponse } from "../../../../types/legacy/Presence.js";
+import type { UserPresence } from "../../../../types/legacy/Presence.js";
+
+export type UserPresencesResponse = {
+    userPresences: UserPresence[];
+};
 
 export type fetchUserPresencesType = (
     this: BloxFetch,

@@ -17,7 +17,3 @@ export type UserPresence = {
     lastOnline: Date; // date-string
     invisibleModeExpiry?: Date; // date-string
 };
-
-export type UserPresencesResponse = {
-    userPresences: UserPresence[];
-};

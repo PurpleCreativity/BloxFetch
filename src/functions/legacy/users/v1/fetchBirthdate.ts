@@ -1,6 +1,11 @@
 import type BloxFetch from "../../../../main.js";
 import type { LegacyFetchOptions } from "../../../../types/fetchHandler.js";
-import type { BirthdateResponse } from "../../../../types/legacy/Users.js";
+
+export type BirthdateResponse = {
+    birthMonth: number;
+    birthDay: number;
+    birthYear: number;
+};
 
 export type fetchBirthdateType = (
     this: BloxFetch,
