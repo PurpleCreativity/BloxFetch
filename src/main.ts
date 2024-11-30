@@ -1,6 +1,8 @@
 import FetchHandler from "./classes/internal/fetchHandler.js";
 
-import fetchUsernameHistory, { type fetchUsernameHistoryType } from "./functions/users/v1/fetchUsernameHistory.js";
+import fetchUsernameHistory, {
+    type fetchUsernameHistoryType,
+} from "./functions/legacy/users/v1/fetchUsernameHistory.js";
 
 export default class BloxFetch {
     readonly fetchHandler: FetchHandler;
