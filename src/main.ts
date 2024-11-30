@@ -6,17 +6,25 @@ import fetchUsernameHistory, {
 
 import fetchBirthdate, { type fetchBirthdateType } from "./functions/legacy/users/v1/fetchBirthdate.js";
 
+import fetchUserPresences, { type fetchUserPresencesType } from "./functions/legacy/presence/v1/fetchUserPresences.js";
+
 export default class BloxFetch {
     readonly fetchHandler: FetchHandler;
 
+    //? UsersV1
     readonly fetchUsernameHistory: fetchUsernameHistoryType;
     readonly fetchBirthdate: fetchBirthdateType;
+
+    //? PresenceV1
+    readonly fetchUserPresences: fetchUserPresencesType;
 
     constructor() {
         this.fetchHandler = new FetchHandler({});
 
         this.fetchUsernameHistory = fetchUsernameHistory;
         this.fetchBirthdate = fetchBirthdate;
+
+        this.fetchUserPresences = fetchUserPresences;
     }
 }
 
