@@ -1,3 +1,4 @@
+import type { CreatorV2, RefundPolicyV1 } from "./../shared.d.ts";
 // Type Definitions for v1
 export type GameDetailResponseV1 = {
     id: number; // Universe ID
@@ -40,11 +41,6 @@ export type GameCreatorV1 = {
     hasVerifiedBadge?: boolean;
 };
 
-export type RefundPolicyV1 = {
-    id: number;
-    name: string;
-};
-
 export enum UniverseAvatarTypeV1 {
     MorphToR6 = 1,
     PlayerChoice = 2,
@@ -72,31 +68,6 @@ export type GameResponseV2 = {
     updated: string; // Last updated
     placeVisits: number; // Total visits
 };
-
-export type CreatorV2 = {
-    id: number;
-    type: CreatorTypeV2;
-    name: string;
-};
-
-export type AssetTypeV2 = {
-    id: number;
-    type: AssetEnumV2;
-    name?: string;
-};
-
-export enum CreatorTypeV2 {
-    User = 0,
-    Group = 1,
-}
-
-export type AssetEnumV2 =
-    | 1 // Image
-    | 2 // TShirt
-    | 3 // Audio
-    | 9 // Place
-    | 33 // YouTubeVideo
-    | 83; // Screenshot
 
 export type ExclusiveStartKeyCursorV2 = {
     key?: string;

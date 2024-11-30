@@ -8,6 +8,13 @@ import fetchBirthdate, { type fetchBirthdateType } from "./functions/legacy/user
 
 import fetchUserPresences, { type fetchUserPresencesType } from "./functions/legacy/presence/v1/fetchUserPresences.js";
 
+export type * from "./types/legacy/Users.js";
+export type * from "./types/legacy/Presence.js";
+export type * from "./types/legacy/Games.js";
+export type * from "./types/legacy/Groups.js";
+
+export type * from "./types/fetchHandler.js";
+export type * from "./types/shared.js";
 export default class BloxFetch {
     readonly fetchHandler: FetchHandler;
 

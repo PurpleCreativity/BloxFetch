@@ -5,19 +5,19 @@ import type { UserPresence, UserPresencesResponse } from "../../../../types/lega
 export type fetchUserPresencesType = (
     this: BloxFetch,
     userIds: number | number[],
-    options?: Partial<LegacyFetchOptions>,
+    fetchOptions?: Partial<LegacyFetchOptions>,
 ) => Promise<UserPresence[]>;
 
 export default async function (
     this: BloxFetch,
     userIds: number | number[],
-    options?: Partial<LegacyFetchOptions>,
+    fetchOptions?: Partial<LegacyFetchOptions>,
 ): Promise<UserPresence[]> {
     const data = (
         await this.fetchHandler.fetchLegacy<UserPresencesResponse>("POST", "PresenceV1", "/presence/users", {
             body: { userIds: Array.isArray(userIds) ? userIds : [userIds] },
             params: {},
-            useCache: options?.useCache ?? true,
+            useCache: fetchOptions?.useCache ?? true,
         })
     ).userPresences;
 
