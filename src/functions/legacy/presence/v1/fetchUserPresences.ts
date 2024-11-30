@@ -13,11 +13,18 @@ export default async function (
     userIds: number | number[],
     options?: Partial<LegacyFetchOptions>,
 ): Promise<UserPresence[]> {
-    return (
+    const data = (
         await this.fetchHandler.fetchLegacy<UserPresencesResponse>("POST", "PresenceV1", "/presence/users", {
             body: { userIds: Array.isArray(userIds) ? userIds : [userIds] },
             params: {},
             useCache: options?.useCache ?? true,
         })
     ).userPresences;
+
+    for (const entry of data) {
+        entry.lastOnline = new Date(entry.lastOnline);
+        if (entry.invisibleModeExpiry) entry.invisibleModeExpiry = new Date(entry.invisibleModeExpiry);
+    }
+
+    return data;
 }
