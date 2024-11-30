@@ -1,6 +1,10 @@
 import type BloxFetch from "../../../main.js";
 import type { LegacyListFetchOptions } from "../../../types/fetchHandler.js";
 
+type ReturnData = {
+    name: string;
+};
+
 export type fetchUsernameHistoryType = (
     this: BloxFetch,
     userId: number,
@@ -12,7 +16,7 @@ export default async function (
     userId: number,
     options?: Partial<LegacyListFetchOptions>,
 ): Promise<string[]> {
-    const response = await this.fetchHandler.fetchLegacyList<{ name: string }>(
+    const response = await this.fetchHandler.fetchLegacyList<ReturnData>(
         "GET",
         "Users",
         `/users/${userId}/username-history`,
