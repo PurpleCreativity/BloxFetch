@@ -23,31 +23,35 @@ export default class FetchHandler {
     };
 
     readonly LegacyAPI = {
-        Users: "https://users.roblox.com/v1",
-        Thumbnails: "https://thumbnails.roblox.com/v1",
-        Friends: "https://friends.roblox.com/v1",
-        Presence: "https://presence.roblox.com/v1",
+        UsersV1: "https://users.roblox.com/v1",
 
-        Groups: "https://groups.roblox.com/v1",
+        ThumbnailsV1: "https://thumbnails.roblox.com/v1",
+
+        FriendsV1: "https://friends.roblox.com/v1",
+
+        PresenceV1: "https://presence.roblox.com/v1",
+
+        GroupsV1: "https://groups.roblox.com/v1",
         GroupsV2: "https://groups.roblox.com/v2",
 
-        Games: "https://games.roblox.com/v1",
+        GamesV1: "https://games.roblox.com/v1",
         GamesV2: "https://games.roblox.com/v2",
 
-        Badges: "https://badges.roblox.com/v1",
+        BadgesV1: "https://badges.roblox.com/v1",
         BadgesV2: "https://badges.roblox.com/v2",
 
-        Inventory: "https://inventory.roblox.com/v1",
+        InventoryV1: "https://inventory.roblox.com/v1",
         InventoryV2: "https://inventory.roblox.com/v2",
 
-        AccountSettings: "https://accountsettings.roblox.com/v1",
-        PremiumFeatures: "https://premiumfeatures.roblox.com/v1",
+        AccountSettingsV1: "https://accountsettings.roblox.com/v1",
 
-        Auth: "https://auth.roblox.com/v1",
+        PremiumFeaturesV1: "https://premiumfeatures.roblox.com/v1",
+
+        AuthV1: "https://auth.roblox.com/v1",
         AuthV2: "https://auth.roblox.com/v2",
         AuthV3: "https://auth.roblox.com/v3",
 
-        Avatar: "https://avatar.roblox.com/v1",
+        AvatarV1: "https://avatar.roblox.com/v1",
         AvatarV2: "https://avatar.roblox.com/v2",
         AvatarV3: "https://avatar.roblox.com/v3",
     };
