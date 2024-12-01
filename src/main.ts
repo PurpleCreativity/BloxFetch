@@ -13,13 +13,13 @@ import fetchUserGroupRoles, { type fetchUserGroupRolesType } from "./functions/l
 import fetchUsersByIds, { type fetchUsersByIdsType } from "./functions/legacy/users/v1/fetchUsersByIds.js";
 import fetchUsersByNames, { type fetchUsersByNamesTypes } from "./functions/legacy/users/v1/fetchUsersByNames.js";
 
-//export type * from "./types/legacy/Users.js";
-//export type * from "./types/legacy/Presence.js";
-//export type * from "./types/legacy/Games.js";
-//export type * from "./types/legacy/Groups.js";
+export type * from "./types/legacy/Users.js";
+export type * from "./types/legacy/Presence.js";
+export type * from "./types/legacy/Games.js";
+export type * from "./types/legacy/Groups.js";
 
-//export type * from "./types/fetchHandler.js";
-//export type * from "./types/shared.js";
+export type * from "./types/fetchHandler.js";
+export type * from "./types/shared.js";
 export default class BloxFetch {
     readonly fetchHandler: FetchHandler;
 
@@ -48,6 +48,3 @@ export default class BloxFetch {
         this.fetchUserGroupRoles = fetchUserGroupRoles;
     }
 }
-
-const c = new BloxFetch();
-console.log(await c.fetchUserById(1));
