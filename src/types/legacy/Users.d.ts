@@ -3,11 +3,20 @@ export type UserData = {
     displayName: string;
     id: number;
     hasVerifiedBadge: boolean;
-    externalAppDisplayName?: string;
+    externalAppDisplayName: string | null;
     isBanned: boolean;
-    created: string;
+    created: Date;
     description: string;
 };
+
+export type PartialUserData = {
+    hasVerifiedBadge: boolean;
+    id: number;
+    name: string;
+    displayName: string;
+};
+
+export type UserByNameData = PartialUserData & { requestedUsername: string };
 
 export type UserGroupRoles = {
     group: {
