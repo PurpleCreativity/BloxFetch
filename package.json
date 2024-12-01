@@ -1,6 +1,6 @@
 {
     "name": "@purple_creativity/bloxfetch",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "A promise based wrapper for the Roblox API",
     "main": "./dist/main.js",
     "type": "module",
