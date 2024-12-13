@@ -10,7 +10,7 @@
     },
     "files": ["dist"],
     "scripts": {
-        "build": "tsc",
+        "build": "tsup",
         "test": "jest",
         "run": "node .",
         "start": "tsc && node .",

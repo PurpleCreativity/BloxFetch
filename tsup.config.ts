@@ -6,7 +6,7 @@ export default defineConfig({
     format: ["esm"],
     dts: {
         resolve: true,
-        entry: "src/index.ts",
+        entry: "src/main.ts",
     },
     splitting: true,
     sourcemap: true,
