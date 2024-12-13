@@ -1,22 +1,14 @@
 import type BloxFetch from "../../../../main.js";
 import type { LegacyFetchOptions } from "../../../../types/fetchHandler.js";
-
-export type BirthdateResponse = {
-    birthMonth: number;
-    birthDay: number;
-    birthYear: number;
-};
+import type { UserBirthdate } from "../../../../types/legacy/Users.js";
 
 export type fetchBirthdateType = (
     this: BloxFetch,
     fetchOptions?: Partial<LegacyFetchOptions>,
-) => Promise<BirthdateResponse>;
+) => Promise<UserBirthdate>;
 
-export default async function (
-    this: BloxFetch,
-    fetchOptions?: Partial<LegacyFetchOptions>,
-): Promise<BirthdateResponse> {
-    return await this.fetchHandler.fetchLegacy<BirthdateResponse>("GET", "UsersV1", "/birthdate", {
+export default async function (this: BloxFetch, fetchOptions?: Partial<LegacyFetchOptions>): Promise<UserBirthdate> {
+    return await this.fetchHandler.fetchLegacy<UserBirthdate>("GET", "UsersV1", "/birthdate", {
         params: {},
         body: {},
         useCache: fetchOptions?.useCache ?? true,

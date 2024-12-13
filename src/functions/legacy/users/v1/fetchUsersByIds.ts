@@ -1,22 +1,22 @@
 import type BloxFetch from "../../../../main.js";
 import type { LegacyFetchOptions } from "../../../../types/fetchHandler.js";
-import type { PartialUserData } from "../../../../types/legacy/Users.js";
+import type { partialUserDataByIds } from "../../../../types/legacy/Users.js";
 
-export type fetchUsersByIdsResponse = { data: PartialUserData[] };
+export type fetchUsersByIdsResponse = { data: partialUserDataByIds[] };
 export type fetchUsersByIdsOptions = { excludeBannedUsers: boolean };
 export type fetchUsersByIdsType = (
     this: BloxFetch,
     userIds: number | number[],
     options: fetchUsersByIdsOptions,
     fetchOptions?: Partial<LegacyFetchOptions>,
-) => Promise<PartialUserData[]>;
+) => Promise<partialUserDataByIds[]>;
 
 export default async function (
     this: BloxFetch,
     userIds: number | number[],
     options: fetchUsersByIdsOptions,
     fetchOptions?: Partial<LegacyFetchOptions>,
-): Promise<PartialUserData[]> {
+): Promise<partialUserDataByIds[]> {
     return (
         await this.fetchHandler.fetchLegacy<fetchUsersByIdsResponse>("POST", "UsersV1", "/users", {
             params: {},

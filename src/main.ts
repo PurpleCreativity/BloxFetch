@@ -1,6 +1,5 @@
 import FetchHandler from "./classes/internal/fetchHandler.js";
 
-import fetchUserGroupRoles, { type fetchUserGroupRolesType } from "./functions/legacy/groups/v2/fetchUserGroupRoles.js";
 import fetchUsersPresence, { type fetchUsersPresenceType } from "./functions/legacy/presence/v1/fetchUsersPresence.js";
 import fetchBirthdate, { type fetchBirthdateType } from "./functions/legacy/users/v1/fetchBirthdate.js";
 import fetchUserById, { type fetchUserByIdType } from "./functions/legacy/users/v1/fetchUserById.js";
@@ -10,10 +9,10 @@ import fetchUsernameHistory, {
 import fetchUsersByIds, { type fetchUsersByIdsType } from "./functions/legacy/users/v1/fetchUsersByIds.js";
 import fetchUsersByNames, { type fetchUsersByNamesTypes } from "./functions/legacy/users/v1/fetchUsersByNames.js";
 
-export type * from "./types/legacy/Users.js";
-export type * from "./types/legacy/Presence.js";
-export type * from "./types/legacy/Games.js";
-export type * from "./types/legacy/Groups.js";
+//export type * from "./types/legacy/Users.js";
+//export type * from "./types/legacy/Presence.js";
+//export type * from "./types/legacy/Games.js";
+//export type * from "./types/legacy/Groups.js";
 
 export type * from "./types/fetchHandler.js";
 export type * from "./types/shared.js";
@@ -28,8 +27,7 @@ export default class BloxFetch {
     readonly fetchUsersByNames: fetchUsersByNamesTypes;
     //? PresenceV1
     readonly fetchUsersPresence: fetchUsersPresenceType;
-    //? Groups
-    readonly fetchUserGroupRoles: fetchUserGroupRolesType;
+    //? GroupsV1
 
     constructor() {
         this.fetchHandler = new FetchHandler({});
@@ -41,7 +39,6 @@ export default class BloxFetch {
         this.fetchUsersByNames = fetchUsersByNames;
         //? PresenceV1
         this.fetchUsersPresence = fetchUsersPresence;
-        //? Groups
-        this.fetchUserGroupRoles = fetchUserGroupRoles;
+        //? GroupsV1
     }
 }
