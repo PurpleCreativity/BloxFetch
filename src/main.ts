@@ -1,15 +1,12 @@
 import FetchHandler from "./classes/internal/fetchHandler.js";
 
+import fetchUserGroupRoles, { type fetchUserGroupRolesType } from "./functions/legacy/groups/v2/fetchUserGroupRoles.js";
+import fetchUsersPresence, { type fetchUsersPresenceType } from "./functions/legacy/presence/v1/fetchUsersPresence.js";
+import fetchBirthdate, { type fetchBirthdateType } from "./functions/legacy/users/v1/fetchBirthdate.js";
+import fetchUserById, { type fetchUserByIdType } from "./functions/legacy/users/v1/fetchUserById.js";
 import fetchUsernameHistory, {
     type fetchUsernameHistoryType,
 } from "./functions/legacy/users/v1/fetchUsernameHistory.js";
-
-import fetchBirthdate, { type fetchBirthdateType } from "./functions/legacy/users/v1/fetchBirthdate.js";
-import fetchUserById, { type fetchUserByIdType } from "./functions/legacy/users/v1/fetchUserById.js";
-
-import fetchUsersPresence, { type fetchUsersPresenceType } from "./functions/legacy/presence/v1/fetchUsersPresence.js";
-
-import fetchUserGroupRoles, { type fetchUserGroupRolesType } from "./functions/legacy/groups/v2/fetchUserGroupRoles.js";
 import fetchUsersByIds, { type fetchUsersByIdsType } from "./functions/legacy/users/v1/fetchUsersByIds.js";
 import fetchUsersByNames, { type fetchUsersByNamesTypes } from "./functions/legacy/users/v1/fetchUsersByNames.js";
 
