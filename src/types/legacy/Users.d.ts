@@ -53,7 +53,18 @@ export type partialUserDataByUsernames = Pick<UserData, "name" | "displayName" |
 //
 
 export type UserBirthdate = {
+    /**
+     * The month of the user's birth (1-12).
+     */
     birthMonth: number;
+
+    /**
+     * The day of the user's birth (1-31 depending on the month).
+     */
     birthDay: number;
+
+    /**
+     * The year of the user's birth (e.g., 1990).
+     */
     birthYear: number;
 };
