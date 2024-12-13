@@ -8,9 +8,7 @@
     "exports": {
         ".": "./dist/main.js"
     },
-    "files": [
-        "dist"
-    ],
+    "files": ["dist"],
     "scripts": {
         "build": "tsup",
         "test": "jest",
