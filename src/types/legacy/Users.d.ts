@@ -1,7 +1,7 @@
 /**
  * Represents raw user data returned from the Roblox Users API.
  */
-export type RawUserData = {
+export type rawUserData = {
     /** Unique username of the user */
     name: string;
 
@@ -30,7 +30,7 @@ export type RawUserData = {
 /**
  * Represents processed user data with a parsed creation date.
  */
-export type UserData = Omit<RawUserData, "created"> & {
+export type UserData = Omit<rawUserData, "created"> & {
     /** Account creation date as a Date object */
     created: Date;
 };
