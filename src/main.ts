@@ -9,13 +9,14 @@ import fetchUsernameHistory, {
 import fetchUsersByIds, { type fetchUsersByIdsType } from "./functions/legacy/users/v1/fetchUsersByIds.js";
 import fetchUsersByNames, { type fetchUsersByNamesTypes } from "./functions/legacy/users/v1/fetchUsersByNames.js";
 
-//export type * from "./types/legacy/Users.js";
-//export type * from "./types/legacy/Presence.js";
+export type * from "./types/legacy/Users.js";
+export type * from "./types/legacy/Presence.js";
 //export type * from "./types/legacy/Games.js";
 //export type * from "./types/legacy/Groups.js";
 
 export type * from "./types/fetchHandler.js";
 export type * from "./types/shared.js";
+
 /**
  * Main class for interacting with the Roblox API through various endpoints.
  */
@@ -77,6 +78,6 @@ export default class BloxFetch {
         //? PresenceV1
         this.fetchUsersPresence = fetchUsersPresence;
 
-        //? GroupsV1 (Future implementation placeholder)
+        //? GroupsV1
     }
 }
