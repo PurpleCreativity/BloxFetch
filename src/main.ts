@@ -3,7 +3,7 @@ import LegacyFetchHandler from "./classes/internal/LegacyFetchHandler.js";
 import fetchUsersPresences, {
     type fetchUsersPresencesType,
 } from "./functions/legacy/presence/v1/fetchUsersPresences.js";
-import fetchBadgeIcons, { type fetchBadgeIconsType } from "./functions/legacy/thumbnails/v1/fetchBadgeIcons.js";
+import fetchBadgeIcons, { type fetchBadgeIconsType } from "./functions/legacy/thumbnails/v1/fetchBadgeIcon.js";
 import fetchUniverseIcon, { type fetchUniverseIconType } from "./functions/legacy/thumbnails/v1/fetchUniverseIcon.js";
 import fetchUniverseThumbnails, {
     type fetchUniverseThumbnailsType,
