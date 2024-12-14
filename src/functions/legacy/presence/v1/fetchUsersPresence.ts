@@ -8,13 +8,17 @@ export type UsersPresenceResponse = {
 
 export type fetchUsersPresenceType = (
     this: BloxFetch,
+
     userIds: number | number[],
+
     fetchOptions?: Partial<LegacyFetchOptions>,
 ) => Promise<UserPresence[]>;
 
 export default async function (
     this: BloxFetch,
+
     userIds: number | number[],
+
     fetchOptions?: Partial<LegacyFetchOptions>,
 ): Promise<UserPresence[]> {
     const data = (

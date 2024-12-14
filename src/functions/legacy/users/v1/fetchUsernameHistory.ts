@@ -7,13 +7,17 @@ export type UsernameHistoryResponse = {
 
 export type fetchUsernameHistoryType = (
     this: BloxFetch,
+
     userId: number,
+
     fetchOptions?: Partial<LegacyListFetchOptions>,
 ) => Promise<string[]>;
 
 export default async function (
     this: BloxFetch,
+
     userId: number,
+
     fetchOptions?: Partial<LegacyListFetchOptions>,
 ): Promise<string[]> {
     return (

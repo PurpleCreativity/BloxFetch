@@ -4,13 +4,17 @@ import type { UserData, rawUserData } from "../../../../types/legacy/Users.js";
 
 export type fetchUserByIdType = (
     this: BloxFetch,
+
     userId: number,
+
     fetchOptions?: Partial<LegacyFetchOptions>,
 ) => Promise<UserData>;
 
 export default async function (
     this: BloxFetch,
+
     userId: number,
+
     fetchOptions?: Partial<LegacyFetchOptions>,
 ): Promise<UserData> {
     const rawdata = await this.fetchHandler.fetchLegacy<rawUserData>("GET", "UsersV1", `/users/${userId}`, {

@@ -3,19 +3,22 @@ import type { LegacyFetchOptions } from "../../../../types/fetchHandler.js";
 import type { partialUserDataByIds } from "../../../../types/legacy/Users.js";
 
 export type fetchUsersByIdsResponse = { data: partialUserDataByIds[] };
-export type fetchUsersByIdsOptions = { excludeBannedUsers: boolean };
 
 export type fetchUsersByIdsType = (
     this: BloxFetch,
+
     userIds: number | number[],
-    options: fetchUsersByIdsOptions,
+    excludeBannedUsers: boolean,
+
     fetchOptions?: Partial<LegacyFetchOptions>,
 ) => Promise<partialUserDataByIds[]>;
 
 export default async function (
     this: BloxFetch,
+
     userIds: number | number[],
-    options: fetchUsersByIdsOptions,
+    excludeBannedUsers: boolean,
+
     fetchOptions?: Partial<LegacyFetchOptions>,
 ): Promise<partialUserDataByIds[]> {
     return (
@@ -23,7 +26,7 @@ export default async function (
             params: {},
             body: {
                 userIds: Array.isArray(userIds) ? userIds : [userIds],
-                excludeBannedUsers: options.excludeBannedUsers,
+                excludeBannedUsers: excludeBannedUsers,
             },
             useCache: fetchOptions?.useCache ?? true,
         })
