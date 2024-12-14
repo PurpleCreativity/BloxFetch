@@ -7,9 +7,9 @@ import {
 } from "../../../../types/legacy/Thumbnails.Enums.js";
 import type { fetchedImage } from "../../../../types/legacy/Thumbnails.js";
 
-export type fetchUniversesIconsResponse = { data: fetchedImage[] };
+export type fetchUniverseIconResponse = { data: fetchedImage[] };
 
-export type fetchUniversesIconsType = (
+export type fetchUniverseIconType = (
     this: BloxFetch,
 
     universeId: number,
@@ -33,7 +33,7 @@ export default async function (
     fetchOptions?: Partial<LegacyFetchOptions>,
 ): Promise<fetchedImage[]> {
     return (
-        await this.LegacyFetchHandler.fetch<fetchUniversesIconsResponse>("GET", "ThumbnailsV1", "/v1/badges/icons", {
+        await this.LegacyFetchHandler.fetch<fetchUniverseIconResponse>("GET", "ThumbnailsV1", "/v1/games/icons", {
             params: {
                 universeId: universeId,
                 returnPolicy: returnPolicy,

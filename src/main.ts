@@ -4,15 +4,13 @@ import fetchUsersPresences, {
     type fetchUsersPresencesType,
 } from "./functions/legacy/presence/v1/fetchUsersPresences.js";
 import fetchBadgeIcons, { type fetchBadgeIconsType } from "./functions/legacy/thumbnails/v1/fetchBadgeIcons.js";
-import fetchUniversepassIcons, {
-    type fetchUniversepassIconsType,
-} from "./functions/legacy/thumbnails/v1/fetchUniversepassIcons.js";
-import fetchUniversesIcons, {
-    type fetchUniversesIconsType,
-} from "./functions/legacy/thumbnails/v1/fetchUniversesIcons.js";
-import fetchUniversesThumbnails, {
-    type fetchUniversesThumbnailsType,
-} from "./functions/legacy/thumbnails/v1/fetchUniversesThumbnails.js";
+import fetchUniverseIcon, { type fetchUniverseIconType } from "./functions/legacy/thumbnails/v1/fetchUniverseIcon.js";
+import fetchUniverseThumbnails, {
+    type fetchUniverseThumbnailsType,
+} from "./functions/legacy/thumbnails/v1/fetchUniverseThumbnails.js";
+import fetchUniversepassIcon, {
+    type fetchUniversepassIconType,
+} from "./functions/legacy/thumbnails/v1/fetchUniversepassIcon.js";
 import fetchBirthdate, { type fetchBirthdateType } from "./functions/legacy/users/v1/fetchBirthdate.js";
 import fetchUserById, { type fetchUserByIdType } from "./functions/legacy/users/v1/fetchUserById.js";
 import fetchUsernameHistory, {
@@ -79,13 +77,13 @@ export default class BloxFetch {
 
     //? ThumbnailsV1
 
-    readonly fetchBadgeIcons: fetchBadgeIconsType;
+    readonly fetchBadgeIcon: fetchBadgeIconsType;
 
-    readonly fetchUniversepassIcons: fetchUniversepassIconsType;
+    readonly fetchUniversepassIcon: fetchUniversepassIconType;
 
-    readonly fetchUniversesThumbnails: fetchUniversesThumbnailsType;
+    readonly fetchUniverseThumbnails: fetchUniverseThumbnailsType;
 
-    readonly fetchUniversesIcons: fetchUniversesIconsType;
+    readonly fetchUniverseIcon: fetchUniverseIconType;
     /**
      * Initializes a new instance of the BloxFetch class.
      */
@@ -105,9 +103,9 @@ export default class BloxFetch {
         //? GroupsV1
 
         //? ThumbnailsV1
-        this.fetchBadgeIcons = fetchBadgeIcons;
-        this.fetchUniversepassIcons = fetchUniversepassIcons;
-        this.fetchUniversesThumbnails = fetchUniversesThumbnails;
-        this.fetchUniversesIcons = fetchUniversesIcons;
+        this.fetchBadgeIcon = fetchBadgeIcons;
+        this.fetchUniversepassIcon = fetchUniversepassIcon;
+        this.fetchUniverseThumbnails = fetchUniverseThumbnails;
+        this.fetchUniverseIcon = fetchUniverseIcon;
     }
 }

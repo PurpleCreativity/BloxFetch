@@ -1,17 +1,16 @@
 import type BloxFetch from "../../../../main.js";
 import type { LegacyFetchOptions } from "../../../../types/internal/LegacyFetchHandler.js";
-import { UniverseThumbnailImageFormat, UniverseThumbnailImageSize } from "../../../../types/legacy/Thumbnails.Enums.js";
+import { UniversePassImageFormat, UniversePassImageSize } from "../../../../types/legacy/Thumbnails.Enums.js";
 import type { fetchedImage } from "../../../../types/legacy/Thumbnails.js";
 
-export type fetchUniversesThumbnailsResponse = { data: fetchedImage[] };
+export type fetchUniversepassIconResponse = { data: fetchedImage[] };
 
-export type fetchUniversesThumbnailsType = (
+export type fetchUniversepassIconType = (
     this: BloxFetch,
 
-    universeId: number,
-    thumbnailIds: number | number[],
-    size?: UniverseThumbnailImageSize,
-    format?: UniverseThumbnailImageFormat,
+    UniversePassIds: number | number[],
+    size?: UniversePassImageSize,
+    format?: UniversePassImageFormat,
     isCircular?: boolean,
 
     fetchOptions?: Partial<LegacyFetchOptions>,
@@ -20,23 +19,21 @@ export type fetchUniversesThumbnailsType = (
 export default async function (
     this: BloxFetch,
 
-    universeId: number,
-    thumbnailIds: number | number[],
-    size: UniverseThumbnailImageSize = UniverseThumbnailImageSize["768x432"],
-    format: UniverseThumbnailImageFormat = UniverseThumbnailImageFormat.Png,
+    UniversePassIds: number | number[],
+    size: UniversePassImageSize = UniversePassImageSize["150x150"],
+    format: UniversePassImageFormat = UniversePassImageFormat.Png,
     isCircular = false,
 
     fetchOptions?: Partial<LegacyFetchOptions>,
 ): Promise<fetchedImage[]> {
     return (
-        await this.LegacyFetchHandler.fetch<fetchUniversesThumbnailsResponse>(
+        await this.LegacyFetchHandler.fetch<fetchUniversepassIconResponse>(
             "GET",
             "ThumbnailsV1",
-            "/v1/badges/icons",
+            "/v1/Universe-passes",
             {
                 params: {
-                    universeId: universeId,
-                    thumbnailIds: Array.isArray(thumbnailIds) ? thumbnailIds : [thumbnailIds],
+                    UniversePassIds: Array.isArray(UniversePassIds) ? UniversePassIds : [UniversePassIds],
 
                     size: size,
                     format: format,
