@@ -12,7 +12,7 @@ export type fetchUniverseIconResponse = { data: Image[] };
 export type fetchUniverseIconType = (
     this: BloxFetch,
 
-    universeId: number,
+    universeIds: number | number[],
     returnPolicy?: UniverseIconImageReutrnPolicy,
     size?: UniverseIconImageSize,
     format?: UniverseIconImageFormat,
@@ -24,7 +24,7 @@ export type fetchUniverseIconType = (
 export default async function (
     this: BloxFetch,
 
-    universeId: number,
+    universeIds: number | number[],
     returnPolicy: UniverseIconImageReutrnPolicy = UniverseIconImageReutrnPolicy.PlaceHolder,
     size: UniverseIconImageSize = UniverseIconImageSize["50x50"],
     format: UniverseIconImageFormat = UniverseIconImageFormat.Png,
@@ -35,7 +35,7 @@ export default async function (
     return (
         await this.LegacyFetchHandler.fetch<fetchUniverseIconResponse>("GET", "ThumbnailsV1", "/v1/games/icons", {
             params: {
-                universeId: universeId,
+                universeIds: Array.isArray(universeIds) ? universeIds : [universeIds],
                 returnPolicy: returnPolicy,
 
                 size: size,
