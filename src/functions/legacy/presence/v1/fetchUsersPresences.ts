@@ -6,7 +6,7 @@ export type UsersPresenceResponse = {
     userPresences: UserPresence[];
 };
 
-export type fetchUsersPresenceType = (
+export type fetchUsersPresencesType = (
     this: BloxFetch,
 
     userIds: number | number[],

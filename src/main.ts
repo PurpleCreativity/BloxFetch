@@ -1,6 +1,8 @@
 import LegacyFetchHandler from "./classes/internal/LegacyFetchHandler.js";
 
-import fetchUsersPresence, { type fetchUsersPresenceType } from "./functions/legacy/presence/v1/fetchUsersPresence.js";
+import fetchUsersPresences, {
+    type fetchUsersPresencesType,
+} from "./functions/legacy/presence/v1/fetchUsersPresences.js";
 import fetchBadgeIcons, { type fetchBadgeIconsType } from "./functions/legacy/thumbnails/v1/fetchBadgeIcons.js";
 import fetchGamepassIcons, {
     type fetchGamepassIconsType,
@@ -65,7 +67,7 @@ export default class BloxFetch {
     /**
      * Fetches the online presence of multiple users.
      */
-    readonly fetchUsersPresence: fetchUsersPresenceType;
+    readonly fetchUsersPresences: fetchUsersPresencesType;
 
     //? GroupsV1 (Future implementation placeholder)
 
@@ -88,7 +90,7 @@ export default class BloxFetch {
         this.fetchUsersByUsernames = fetchUsersByUsernames;
 
         //? PresenceV1
-        this.fetchUsersPresence = fetchUsersPresence;
+        this.fetchUsersPresences = fetchUsersPresences;
 
         //? GroupsV1
 
