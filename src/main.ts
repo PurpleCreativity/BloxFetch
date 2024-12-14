@@ -1,6 +1,7 @@
 import FetchHandler from "./classes/internal/fetchHandler.js";
 
 import fetchUsersPresence, { type fetchUsersPresenceType } from "./functions/legacy/presence/v1/fetchUsersPresence.js";
+import fetchBadgeIcons, { type fetchBadgeIconsType } from "./functions/legacy/thumbnails/v1/fetchBadgeIcons.js";
 import fetchBirthdate, { type fetchBirthdateType } from "./functions/legacy/users/v1/fetchBirthdate.js";
 import fetchUserById, { type fetchUserByIdType } from "./functions/legacy/users/v1/fetchUserById.js";
 import fetchUsernameHistory, {
@@ -13,6 +14,7 @@ import fetchUsersByUsernames, {
 
 export type * from "./types/legacy/Users.js";
 export type * from "./types/legacy/Presence.js";
+export type * from "./types/legacy/Thumbnails.js";
 //export type * from "./types/legacy/Games.js";
 //export type * from "./types/legacy/Groups.js";
 
@@ -64,6 +66,9 @@ export default class BloxFetch {
 
     //? GroupsV1 (Future implementation placeholder)
 
+    //? ThumbnailsV1
+
+    readonly fetchBadgeIcons: fetchBadgeIconsType;
     /**
      * Initializes a new instance of the BloxFetch class.
      */
@@ -81,5 +86,8 @@ export default class BloxFetch {
         this.fetchUsersPresence = fetchUsersPresence;
 
         //? GroupsV1
+
+        //? ThumbnailsV1
+        this.fetchBadgeIcons = fetchBadgeIcons;
     }
 }
