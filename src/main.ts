@@ -7,7 +7,9 @@ import fetchUsernameHistory, {
     type fetchUsernameHistoryType,
 } from "./functions/legacy/users/v1/fetchUsernameHistory.js";
 import fetchUsersByIds, { type fetchUsersByIdsType } from "./functions/legacy/users/v1/fetchUsersByIds.js";
-import fetchUsersByNames, { type fetchUsersByNamesTypes } from "./functions/legacy/users/v1/fetchUsersByNames.js";
+import fetchUsersByUsernames, {
+    type fetchUsersByUsernamesType,
+} from "./functions/legacy/users/v1/fetchUsersByUsernames.js";
 
 export type * from "./types/legacy/Users.js";
 export type * from "./types/legacy/Presence.js";
@@ -51,7 +53,7 @@ export default class BloxFetch {
     /**
      * Fetches information about multiple users by their usernames.
      */
-    readonly fetchUsersByNames: fetchUsersByNamesTypes;
+    readonly fetchUsersByUsernames: fetchUsersByUsernamesType;
 
     //? PresenceV1
 
@@ -73,7 +75,7 @@ export default class BloxFetch {
         this.fetchBirthdate = fetchBirthdate;
         this.fetchUserById = fetchUserById;
         this.fetchUsersByIds = fetchUsersByIds;
-        this.fetchUsersByNames = fetchUsersByNames;
+        this.fetchUsersByUsernames = fetchUsersByUsernames;
 
         //? PresenceV1
         this.fetchUsersPresence = fetchUsersPresence;
