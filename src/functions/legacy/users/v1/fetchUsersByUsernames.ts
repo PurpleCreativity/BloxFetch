@@ -1,5 +1,5 @@
 import type BloxFetch from "../../../../main.js";
-import type { LegacyFetchOptions } from "../../../../types/fetchHandler.js";
+import type { LegacyFetchOptions } from "../../../../types/internal/LegacyFetchHandler.js";
 import type { partialUserDataByUsernames } from "../../../../types/legacy/Users.js";
 
 export type fetchUsersByUsernamesResponse = { data: partialUserDataByUsernames[] };
@@ -22,7 +22,7 @@ export default async function (
     fetchOptions?: Partial<LegacyFetchOptions>,
 ): Promise<partialUserDataByUsernames[]> {
     return (
-        await this.fetchHandler.fetchLegacy<fetchUsersByUsernamesResponse>("POST", "UsersV1", "/usernames/users", {
+        await this.LegacyFetchHandler.fetch<fetchUsersByUsernamesResponse>("POST", "UsersV1", "/usernames/users", {
             params: {},
             body: {
                 usernames: Array.isArray(usernames) ? usernames : [usernames],

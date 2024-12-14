@@ -1,7 +1,10 @@
-import FetchHandler from "./classes/internal/fetchHandler.js";
+import LegacyFetchHandler from "./classes/internal/LegacyFetchHandler.js";
 
 import fetchUsersPresence, { type fetchUsersPresenceType } from "./functions/legacy/presence/v1/fetchUsersPresence.js";
 import fetchBadgeIcons, { type fetchBadgeIconsType } from "./functions/legacy/thumbnails/v1/fetchBadgeIcons.js";
+import fetchGamepassIcons, {
+    type fetchGamepassIconsType,
+} from "./functions/legacy/thumbnails/v1/fetchGamepassIcons.js";
 import fetchBirthdate, { type fetchBirthdateType } from "./functions/legacy/users/v1/fetchBirthdate.js";
 import fetchUserById, { type fetchUserByIdType } from "./functions/legacy/users/v1/fetchUserById.js";
 import fetchUsernameHistory, {
@@ -18,7 +21,7 @@ import fetchUsersByUsernames, {
 //export type * from "./types/legacy/Games.js";
 //export type * from "./types/legacy/Groups.js";
 
-export type * from "./types/fetchHandler.js";
+export type * from "./types/internal/LegacyFetchHandler.js";
 export type * from "./types/shared.js";
 
 /**
@@ -28,7 +31,7 @@ export default class BloxFetch {
     /**
      * Instance of the internal fetch handler responsible for making API requests.
      */
-    readonly fetchHandler: FetchHandler;
+    readonly LegacyFetchHandler: LegacyFetchHandler;
 
     //? UsersV1
 
@@ -69,11 +72,13 @@ export default class BloxFetch {
     //? ThumbnailsV1
 
     readonly fetchBadgeIcons: fetchBadgeIconsType;
+
+    readonly fetchGamepassIcons: fetchGamepassIconsType;
     /**
      * Initializes a new instance of the BloxFetch class.
      */
     constructor() {
-        this.fetchHandler = new FetchHandler({});
+        this.LegacyFetchHandler = new LegacyFetchHandler({});
 
         //? UsersV1
         this.fetchUsernameHistory = fetchUsernameHistory;
@@ -89,5 +94,6 @@ export default class BloxFetch {
 
         //? ThumbnailsV1
         this.fetchBadgeIcons = fetchBadgeIcons;
+        this.fetchGamepassIcons = fetchGamepassIcons;
     }
 }

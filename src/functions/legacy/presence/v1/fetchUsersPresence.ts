@@ -1,5 +1,5 @@
 import type BloxFetch from "../../../../main.js";
-import type { LegacyFetchOptions } from "../../../../types/fetchHandler.js";
+import type { LegacyFetchOptions } from "../../../../types/internal/LegacyFetchHandler.js";
 import type { UserPresence } from "../../../../types/legacy/Presence.js";
 
 export type UsersPresenceResponse = {
@@ -22,7 +22,7 @@ export default async function (
     fetchOptions?: Partial<LegacyFetchOptions>,
 ): Promise<UserPresence[]> {
     const data = (
-        await this.fetchHandler.fetchLegacy<UsersPresenceResponse>("POST", "PresenceV1", "/presence/users", {
+        await this.LegacyFetchHandler.fetch<UsersPresenceResponse>("POST", "PresenceV1", "/presence/users", {
             body: { userIds: Array.isArray(userIds) ? userIds : [userIds] },
             params: {},
             useCache: fetchOptions?.useCache ?? true,

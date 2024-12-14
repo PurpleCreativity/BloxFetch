@@ -1,19 +1,18 @@
-import axios, { AxiosError, type AxiosResponse, type AxiosInstance, type AxiosRequestConfig } from "axios";
+import axios, { AxiosError, type AxiosInstance, type AxiosRequestConfig } from "axios";
 import type {
     HttpMethod,
     LegacyFetchOptions,
     LegacyListFetchOptions,
     PaginatedResponse,
-} from "../../types/fetchHandler.js";
+} from "../../types/internal/LegacyFetchHandler.js";
 import CacheManager from "./cacheManager.js";
 
 type credentials = {
     cookie?: string;
     csrf?: string;
-    key?: string;
 };
 
-export default class FetchHandler {
+export default class LegacyFetchHandler {
     private client: AxiosInstance;
     private cache = new CacheManager<string, unknown>();
 
@@ -71,7 +70,7 @@ export default class FetchHandler {
         this.credentials = { ...this.credentials, ...credentials };
     };
 
-    async fetchLegacy<T = unknown>(
+    async fetch<T = unknown>(
         method: HttpMethod,
         API: keyof typeof this.LegacyAPI,
         route: string,
@@ -99,7 +98,7 @@ export default class FetchHandler {
             this.credentials.csrf = response.headers["x-csrf-token"];
 
             if (response.status === 403) {
-                return await this.fetchLegacy(method, API, route, options);
+                return await this.fetch(method, API, route, options);
             }
         }
 
@@ -108,7 +107,7 @@ export default class FetchHandler {
         return response.data;
     }
 
-    async fetchLegacyList<T = unknown>(
+    async fetchList<T = unknown>(
         method: HttpMethod,
         API: keyof typeof this.LegacyAPI,
         route: string,
@@ -119,7 +118,7 @@ export default class FetchHandler {
 
         while (true) {
             try {
-                const response = await this.fetchLegacy<PaginatedResponse<T>>(
+                const response = await this.fetch<PaginatedResponse<T>>(
                     method,
                     API,
                     `${route}?limit=${options.maxResults || 100}&cursor=${cursor}`,

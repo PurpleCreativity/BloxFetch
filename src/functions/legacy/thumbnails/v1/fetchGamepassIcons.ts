@@ -1,16 +1,16 @@
 import type BloxFetch from "../../../../main.js";
 import type { LegacyFetchOptions } from "../../../../types/internal/LegacyFetchHandler.js";
 import type { fetchedImage } from "../../../../types/legacy/Thumbnails.js";
-import { BadgeIconImageFormat, BadgeIconImageSize } from "../../../../types/legacy/ThumbnailsEnums.js";
+import { GamePassImageFormat, GamePassImageSize } from "../../../../types/legacy/ThumbnailsEnums.js";
 
-export type fetchBadgeIconsResponse = { data: fetchedImage[] };
+export type fetchGamepassIconsResponse = { data: fetchedImage[] };
 
-export type fetchBadgeIconsType = (
+export type fetchGamepassIconsType = (
     this: BloxFetch,
 
-    badgeIds: number | number[],
-    size: BadgeIconImageSize,
-    format: BadgeIconImageFormat,
+    gamePassIds: number | number[],
+    size: GamePassImageSize,
+    format: GamePassImageFormat,
     isCircular: boolean,
 
     fetchOptions?: Partial<LegacyFetchOptions>,
@@ -19,17 +19,17 @@ export type fetchBadgeIconsType = (
 export default async function (
     this: BloxFetch,
 
-    badgeIds: number | number[],
-    size: BadgeIconImageSize = BadgeIconImageSize["150x150"],
-    format: BadgeIconImageFormat = BadgeIconImageFormat.Png,
+    gamePassIds: number | number[],
+    size: GamePassImageSize = GamePassImageSize["150x150"],
+    format: GamePassImageFormat = GamePassImageFormat.Png,
     isCircular = false,
 
     fetchOptions?: Partial<LegacyFetchOptions>,
 ): Promise<fetchedImage[]> {
     return (
-        await this.LegacyFetchHandler.fetch<fetchBadgeIconsResponse>("GET", "ThumbnailsV1", "/v1/badges/icons", {
+        await this.LegacyFetchHandler.fetch<fetchGamepassIconsResponse>("GET", "ThumbnailsV1", "/v1/badges/icons", {
             params: {
-                badgeIds: Array.isArray(badgeIds) ? badgeIds : [badgeIds],
+                gamePassIds: Array.isArray(gamePassIds) ? gamePassIds : [gamePassIds],
 
                 size: size,
                 format: format,
