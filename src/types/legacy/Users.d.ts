@@ -38,7 +38,7 @@ export type UserData = Omit<rawUserData, "created"> & {
 export type partialAuthenticatedUserData = Pick<UserData, "name" | "displayName" | "id">;
 
 /**
- * Represents minimal user data by ID, useful for basic lookups.
+ * Represents minimal user data by Id, useful for basic lookups.
  */
 export type partialUserDataByIds = Pick<UserData, "name" | "displayName" | "id" | "hasVerifiedBadge">;
 
@@ -52,6 +52,9 @@ export type partialUserDataByUsernames = Pick<UserData, "name" | "displayName" |
     requestedUsername: string;
 };
 
+/**
+ * Represents the minimal user data when searching with a keyword, useful for basic lookups.
+ */
 export type parialUserDataBySearchKeyword = partialUserDataByUsernames;
 
 //
