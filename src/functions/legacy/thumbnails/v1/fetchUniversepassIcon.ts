@@ -27,21 +27,16 @@ export default async function (
     fetchOptions?: Partial<LegacyFetchOptions>,
 ): Promise<fetchedImage[]> {
     return (
-        await this.LegacyFetchHandler.fetch<fetchUniversepassIconResponse>(
-            "GET",
-            "ThumbnailsV1",
-            "/v1/Universe-passes",
-            {
-                params: {
-                    UniversePassIds: Array.isArray(UniversePassIds) ? UniversePassIds : [UniversePassIds],
+        await this.LegacyFetchHandler.fetch<fetchUniversepassIconResponse>("GET", "ThumbnailsV1", "/v1/game-passes", {
+            params: {
+                UniversePassIds: Array.isArray(UniversePassIds) ? UniversePassIds : [UniversePassIds],
 
-                    size: size,
-                    format: format,
-                    isCircular: isCircular,
-                },
-                body: {},
-                useCache: fetchOptions?.useCache ?? true,
+                size: size,
+                format: format,
+                isCircular: isCircular,
             },
-        )
+            body: {},
+            useCache: fetchOptions?.useCache ?? true,
+        })
     ).data;
 }
