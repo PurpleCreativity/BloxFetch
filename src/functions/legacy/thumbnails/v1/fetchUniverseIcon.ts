@@ -5,9 +5,9 @@ import {
     UniverseIconImageReutrnPolicy,
     UniverseIconImageSize,
 } from "../../../../types/legacy/Thumbnails.Enums.js";
-import type { fetchedImage } from "../../../../types/legacy/Thumbnails.js";
+import type { Image } from "../../../../types/legacy/Thumbnails.js";
 
-export type fetchUniverseIconResponse = { data: fetchedImage[] };
+export type fetchUniverseIconResponse = { data: Image[] };
 
 export type fetchUniverseIconType = (
     this: BloxFetch,
@@ -19,7 +19,7 @@ export type fetchUniverseIconType = (
     isCircular?: boolean,
 
     fetchOptions?: Partial<LegacyFetchOptions>,
-) => Promise<fetchedImage[]>;
+) => Promise<Image[]>;
 
 export default async function (
     this: BloxFetch,
@@ -31,7 +31,7 @@ export default async function (
     isCircular = false,
 
     fetchOptions?: Partial<LegacyFetchOptions>,
-): Promise<fetchedImage[]> {
+): Promise<Image[]> {
     return (
         await this.LegacyFetchHandler.fetch<fetchUniverseIconResponse>("GET", "ThumbnailsV1", "/v1/games/icons", {
             params: {

@@ -1,9 +1,9 @@
 import type BloxFetch from "../../../../main.js";
 import type { LegacyFetchOptions } from "../../../../types/internal/LegacyFetchHandler.js";
 import { BadgeIconImageFormat, BadgeIconImageSize } from "../../../../types/legacy/Thumbnails.Enums.js";
-import type { fetchedImage } from "../../../../types/legacy/Thumbnails.js";
+import type { Image } from "../../../../types/legacy/Thumbnails.js";
 
-export type fetchBadgeIconsResponse = { data: fetchedImage[] };
+export type fetchBadgeIconsResponse = { data: Image[] };
 
 export type fetchBadgeIconsType = (
     this: BloxFetch,
@@ -14,7 +14,7 @@ export type fetchBadgeIconsType = (
     isCircular?: boolean,
 
     fetchOptions?: Partial<LegacyFetchOptions>,
-) => Promise<fetchedImage[]>;
+) => Promise<Image[]>;
 
 export default async function (
     this: BloxFetch,
@@ -25,7 +25,7 @@ export default async function (
     isCircular = false,
 
     fetchOptions?: Partial<LegacyFetchOptions>,
-): Promise<fetchedImage[]> {
+): Promise<Image[]> {
     return (
         await this.LegacyFetchHandler.fetch<fetchBadgeIconsResponse>("GET", "ThumbnailsV1", "/v1/badges/icons", {
             params: {

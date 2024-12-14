@@ -1,9 +1,9 @@
 import type BloxFetch from "../../../../main.js";
 import type { LegacyFetchOptions } from "../../../../types/internal/LegacyFetchHandler.js";
 import { UniverseThumbnailImageFormat, UniverseThumbnailImageSize } from "../../../../types/legacy/Thumbnails.Enums.js";
-import type { fetchedImage } from "../../../../types/legacy/Thumbnails.js";
+import type { Image } from "../../../../types/legacy/Thumbnails.js";
 
-export type fetchUniverseThumbnailsResponse = { data: fetchedImage[] };
+export type fetchUniverseThumbnailsResponse = { data: Image[] };
 
 export type fetchUniverseThumbnailsType = (
     this: BloxFetch,
@@ -15,7 +15,7 @@ export type fetchUniverseThumbnailsType = (
     isCircular?: boolean,
 
     fetchOptions?: Partial<LegacyFetchOptions>,
-) => Promise<fetchedImage[]>;
+) => Promise<Image[]>;
 
 export default async function (
     this: BloxFetch,
@@ -27,7 +27,7 @@ export default async function (
     isCircular = false,
 
     fetchOptions?: Partial<LegacyFetchOptions>,
-): Promise<fetchedImage[]> {
+): Promise<Image[]> {
     return (
         await this.LegacyFetchHandler.fetch<fetchUniverseThumbnailsResponse>(
             "GET",

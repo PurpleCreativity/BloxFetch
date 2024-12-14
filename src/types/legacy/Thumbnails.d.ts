@@ -1,4 +1,4 @@
-export type fetchedImage = {
+export type Image = {
     targetId: number;
     state: string;
     imageUrl: string;
