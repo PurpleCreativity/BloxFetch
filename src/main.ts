@@ -4,9 +4,12 @@ import fetchUsersPresences, {
     type fetchUsersPresencesType,
 } from "./functions/legacy/presence/v1/fetchUsersPresences.js";
 import fetchBadgeIcons, { type fetchBadgeIconsType } from "./functions/legacy/thumbnails/v1/fetchBadgeIcons.js";
-import fetchGamepassIcons, {
-    type fetchGamepassIconsType,
-} from "./functions/legacy/thumbnails/v1/fetchGamepassIcons.js";
+import fetchUniversepassIcons, {
+    type fetchUniversepassIconsType,
+} from "./functions/legacy/thumbnails/v1/fetchUniversepassIcons.js";
+import fetchUniversesThumbnails, {
+    type fetchUniversesThumbnailsType,
+} from "./functions/legacy/thumbnails/v1/fetchUniversesThumbnails.js";
 import fetchBirthdate, { type fetchBirthdateType } from "./functions/legacy/users/v1/fetchBirthdate.js";
 import fetchUserById, { type fetchUserByIdType } from "./functions/legacy/users/v1/fetchUserById.js";
 import fetchUsernameHistory, {
@@ -75,7 +78,9 @@ export default class BloxFetch {
 
     readonly fetchBadgeIcons: fetchBadgeIconsType;
 
-    readonly fetchGamepassIcons: fetchGamepassIconsType;
+    readonly fetchUniversepassIcons: fetchUniversepassIconsType;
+
+    readonly fetchUniversesThumbnails: fetchUniversesThumbnailsType;
     /**
      * Initializes a new instance of the BloxFetch class.
      */
@@ -96,6 +101,7 @@ export default class BloxFetch {
 
         //? ThumbnailsV1
         this.fetchBadgeIcons = fetchBadgeIcons;
-        this.fetchGamepassIcons = fetchGamepassIcons;
+        this.fetchUniversepassIcons = fetchUniversepassIcons;
+        this.fetchUniversesThumbnails = fetchUniversesThumbnails;
     }
 }

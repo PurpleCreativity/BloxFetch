@@ -1,6 +1,6 @@
 import type BloxFetch from "../../../../main.js";
 import type { LegacyFetchOptions } from "../../../../types/internal/LegacyFetchHandler.js";
-import { BadgeIconImageFormat, BadgeIconImageSize } from "../../../../types/legacy/ThumbnailEnums.js";
+import { BadgeIconImageFormat, BadgeIconImageSize } from "../../../../types/legacy/Thumbnails.Enums.js";
 import type { fetchedImage } from "../../../../types/legacy/Thumbnails.js";
 
 export type fetchBadgeIconsResponse = { data: fetchedImage[] };
