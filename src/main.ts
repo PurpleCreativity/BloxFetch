@@ -7,6 +7,9 @@ import fetchBadgeIcons, { type fetchBadgeIconsType } from "./functions/legacy/th
 import fetchUniversepassIcons, {
     type fetchUniversepassIconsType,
 } from "./functions/legacy/thumbnails/v1/fetchUniversepassIcons.js";
+import fetchUniversesIcons, {
+    type fetchUniversesIconsType,
+} from "./functions/legacy/thumbnails/v1/fetchUniversesIcons.js";
 import fetchUniversesThumbnails, {
     type fetchUniversesThumbnailsType,
 } from "./functions/legacy/thumbnails/v1/fetchUniversesThumbnails.js";
@@ -81,6 +84,8 @@ export default class BloxFetch {
     readonly fetchUniversepassIcons: fetchUniversepassIconsType;
 
     readonly fetchUniversesThumbnails: fetchUniversesThumbnailsType;
+
+    readonly fetchUniversesIcons: fetchUniversesIconsType;
     /**
      * Initializes a new instance of the BloxFetch class.
      */
@@ -103,5 +108,6 @@ export default class BloxFetch {
         this.fetchBadgeIcons = fetchBadgeIcons;
         this.fetchUniversepassIcons = fetchUniversepassIcons;
         this.fetchUniversesThumbnails = fetchUniversesThumbnails;
+        this.fetchUniversesIcons = fetchUniversesIcons;
     }
 }
