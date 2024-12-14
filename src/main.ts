@@ -12,9 +12,9 @@ import fetchUsersByUsernames, {
     type fetchUsersByUsernamesType,
 } from "./functions/legacy/users/v1/fetchUsersByUsernames.js";
 
-export type * from "./types/legacy/Users.js";
-export type * from "./types/legacy/Presence.js";
-export type * from "./types/legacy/Thumbnails.js";
+//export type * from "./types/legacy/Users.js";
+//export type * from "./types/legacy/Presence.js";
+//export type * from "./types/legacy/Thumbnails.js";
 //export type * from "./types/legacy/Games.js";
 //export type * from "./types/legacy/Groups.js";
 
