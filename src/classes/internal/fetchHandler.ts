@@ -67,7 +67,7 @@ export default class FetchHandler {
         this.cache.setTimeout(ms);
     };
 
-    setCredentials = (credentials: { cookie?: string; csrf?: string }) => {
+    setCredentials = (credentials: { cookie?: string; key?: string }) => {
         this.credentials = { ...this.credentials, ...credentials };
     };
 
@@ -96,7 +96,7 @@ export default class FetchHandler {
         });
 
         if (!this.credentials.csrf && response.headers["x-csrf-token"]) {
-            this.setCredentials({ csrf: response.headers["x-csrf-token"] });
+            this.credentials.csrf = response.headers["x-csrf-token"];
 
             if (response.status === 403) {
                 return await this.fetchLegacy(method, API, route, options);
