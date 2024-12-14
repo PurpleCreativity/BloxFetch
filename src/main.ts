@@ -8,6 +8,9 @@ import fetchUniverseIcon, { type fetchUniverseIconType } from "./functions/legac
 import fetchUniverseThumbnails, {
     type fetchUniverseThumbnailsType,
 } from "./functions/legacy/thumbnails/v1/fetchUniverseThumbnails.js";
+import fetchUniverseThumbnailsMultiget, {
+    type fetchUniverseThumbnailsMultigetType,
+} from "./functions/legacy/thumbnails/v1/fetchUniverseThumbnailsMultiget.js";
 import fetchUniversepassIcon, {
     type fetchUniversepassIconType,
 } from "./functions/legacy/thumbnails/v1/fetchUniversepassIcon.js";
@@ -84,6 +87,8 @@ export default class BloxFetch {
     readonly fetchUniverseThumbnails: fetchUniverseThumbnailsType;
 
     readonly fetchUniverseIcon: fetchUniverseIconType;
+
+    readonly fetchUniverseThumbnailsMultiget: fetchUniverseThumbnailsMultigetType;
     /**
      * Initializes a new instance of the BloxFetch class.
      */
@@ -107,5 +112,6 @@ export default class BloxFetch {
         this.fetchUniversepassIcon = fetchUniversepassIcon;
         this.fetchUniverseThumbnails = fetchUniverseThumbnails;
         this.fetchUniverseIcon = fetchUniverseIcon;
+        this.fetchUniverseThumbnailsMultiget = fetchUniverseThumbnailsMultiget;
     }
 }
