@@ -26,13 +26,13 @@ import fetchUsersByIds, { type fetchUsersByIdsType } from "./functions/legacy/us
 import fetchUsersByUsernames, {
     type fetchUsersByUsernamesType,
 } from "./functions/legacy/users/v1/fetchUsersByUsernames.js";
-import { UserAvatarHeadshotImageSize } from "./types/legacy/Thumbnails.Enums.js";
+
+export type * from "./types/legacy/Thumbnails.js";
+export * from "./types/legacy/Thumbnails.Enums.js";
+
+export type * from "./types/legacy/Presence.js";
 
 export type * from "./types/legacy/Users.js";
-export type * from "./types/legacy/Presence.js";
-export type * from "./types/legacy/Thumbnails.js";
-//export type * from "./types/legacy/Games.js";
-//export type * from "./types/legacy/Groups.js";
 
 export type * from "./types/internal/LegacyFetchHandler.js";
 export type * from "./types/shared.js";
