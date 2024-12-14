@@ -35,6 +35,8 @@ export type UserData = Omit<rawUserData, "created"> & {
     created: Date;
 };
 
+export type partialAuthenticatedUserData = Pick<UserData, "name" | "displayName" | "id">;
+
 /**
  * Represents minimal user data by ID, useful for basic lookups.
  */
