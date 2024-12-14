@@ -27,7 +27,7 @@ export default async function (
     fetchOptions?: Partial<LegacyFetchOptions>,
 ): Promise<Image[]> {
     return (
-        await this.LegacyFetchHandler.fetch<fetchUniversepassIconResponse>("GET", "ThumbnailsV1", "/v1/game-passes", {
+        await this.LegacyFetchHandler.fetch<fetchUniversepassIconResponse>("GET", "ThumbnailsV1", "/game-passes", {
             params: {
                 universeIds: Array.isArray(universeIds) ? universeIds : [universeIds],
 

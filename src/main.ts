@@ -14,6 +14,9 @@ import fetchUniverseThumbnailsMultiget, {
 import fetchUniversepassIcon, {
     type fetchUniversepassIconType,
 } from "./functions/legacy/thumbnails/v1/fetchUniversepassIcon.js";
+import fetchUserAvatarHeadshot, {
+    type fetchUserAvatarHeadshotType,
+} from "./functions/legacy/thumbnails/v1/fetchUserAvatarHeadshot.js";
 import fetchBirthdate, { type fetchBirthdateType } from "./functions/legacy/users/v1/fetchBirthdate.js";
 import fetchUserById, { type fetchUserByIdType } from "./functions/legacy/users/v1/fetchUserById.js";
 import fetchUsernameHistory, {
@@ -23,6 +26,7 @@ import fetchUsersByIds, { type fetchUsersByIdsType } from "./functions/legacy/us
 import fetchUsersByUsernames, {
     type fetchUsersByUsernamesType,
 } from "./functions/legacy/users/v1/fetchUsersByUsernames.js";
+import { UserAvatarHeadshotImageSize } from "./types/legacy/Thumbnails.Enums.js";
 
 //export type * from "./types/legacy/Users.js";
 //export type * from "./types/legacy/Presence.js";
@@ -89,6 +93,8 @@ export default class BloxFetch {
     readonly fetchUniverseIcon: fetchUniverseIconType;
 
     readonly fetchUniverseThumbnailsMultiget: fetchUniverseThumbnailsMultigetType;
+
+    readonly fetchUserAvatarHeadshot: fetchUserAvatarHeadshotType;
     /**
      * Initializes a new instance of the BloxFetch class.
      */
@@ -113,5 +119,6 @@ export default class BloxFetch {
         this.fetchUniverseThumbnails = fetchUniverseThumbnails;
         this.fetchUniverseIcon = fetchUniverseIcon;
         this.fetchUniverseThumbnailsMultiget = fetchUniverseThumbnailsMultiget;
+        this.fetchUserAvatarHeadshot = fetchUserAvatarHeadshot;
     }
 }

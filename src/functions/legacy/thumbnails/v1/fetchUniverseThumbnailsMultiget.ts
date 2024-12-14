@@ -48,7 +48,7 @@ export default async function (
         await this.LegacyFetchHandler.fetch<fetchUniverseThumbnailsResponse>(
             "GET",
             "ThumbnailsV1",
-            "/v1/games/multiget/thumbnails",
+            "/games/multiget/thumbnails",
             {
                 params: {
                     universeIds: Array.isArray(universeIds) ? universeIds : [universeIds],

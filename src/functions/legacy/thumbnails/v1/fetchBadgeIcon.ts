@@ -27,7 +27,7 @@ export default async function (
     fetchOptions?: Partial<LegacyFetchOptions>,
 ): Promise<Image[]> {
     return (
-        await this.LegacyFetchHandler.fetch<fetchBadgeIconsResponse>("GET", "ThumbnailsV1", "/v1/badges/icons", {
+        await this.LegacyFetchHandler.fetch<fetchBadgeIconsResponse>("GET", "ThumbnailsV1", "/badges/icons", {
             params: {
                 badgeIds: Array.isArray(badgeIds) ? badgeIds : [badgeIds],
 

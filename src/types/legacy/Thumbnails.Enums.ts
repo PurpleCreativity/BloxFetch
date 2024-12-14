@@ -1,7 +1,7 @@
 // User Avatar
 
 export enum UserAvatarImageSize {
-    "48x48" = "48x49",
+    "48x48" = "48x48",
     "50x50" = "50x50",
     "60x60" = "60x60",
     "75x75" = "75x75",
@@ -23,7 +23,7 @@ export enum UserAvatarImageFormat {
 // User Avatar Bust
 
 export enum UserAvatarBustImageSize {
-    "48x48" = "48x49",
+    "48x48" = "48x48",
     "50x50" = "50x50",
     "60x60" = "60x60",
     "75x75" = "75x75",
@@ -42,7 +42,7 @@ export enum UserAvatarBustImageFormat {
 // User Avatar Headshot
 
 export enum UserAvatarHeadshotImageSize {
-    "48x48" = "48x49",
+    "48x48" = "48x48",
     "50x50" = "50x50",
     "60x60" = "60x60",
     "75x75" = "75x75",

@@ -33,7 +33,7 @@ export default async function (
     fetchOptions?: Partial<LegacyFetchOptions>,
 ): Promise<Image[]> {
     return (
-        await this.LegacyFetchHandler.fetch<fetchUniverseIconResponse>("GET", "ThumbnailsV1", "/v1/games/icons", {
+        await this.LegacyFetchHandler.fetch<fetchUniverseIconResponse>("GET", "ThumbnailsV1", "/games/icons", {
             params: {
                 universeIds: Array.isArray(universeIds) ? universeIds : [universeIds],
                 returnPolicy: returnPolicy,

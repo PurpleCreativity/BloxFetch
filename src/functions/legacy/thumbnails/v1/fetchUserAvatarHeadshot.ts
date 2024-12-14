@@ -1,17 +1,19 @@
 import type BloxFetch from "../../../../main.js";
 import type { LegacyFetchOptions } from "../../../../types/internal/LegacyFetchHandler.js";
-import { UniverseThumbnailImageFormat, UniverseThumbnailImageSize } from "../../../../types/legacy/Thumbnails.Enums.js";
+import {
+    UserAvatarHeadshotImageFormat,
+    UserAvatarHeadshotImageSize,
+} from "../../../../types/legacy/Thumbnails.Enums.js";
 import type { Image } from "../../../../types/legacy/Thumbnails.js";
 
-export type fetchUniverseThumbnailsResponse = { data: Image[] };
+export type fetchUserAvatarHeadshotResponse = { data: Image[] };
 
-export type fetchUniverseThumbnailsType = (
+export type fetchUserAvatarHeadshotType = (
     this: BloxFetch,
 
-    universeId: number,
-    thumbnailIds: number | number[],
-    size?: UniverseThumbnailImageSize,
-    format?: UniverseThumbnailImageFormat,
+    userIds: number | number[],
+    size?: UserAvatarHeadshotImageSize,
+    format?: UserAvatarHeadshotImageFormat,
     isCircular?: boolean,
 
     fetchOptions?: Partial<LegacyFetchOptions>,
@@ -20,22 +22,21 @@ export type fetchUniverseThumbnailsType = (
 export default async function (
     this: BloxFetch,
 
-    universeId: number,
-    thumbnailIds: number | number[],
-    size: UniverseThumbnailImageSize = UniverseThumbnailImageSize["768x432"],
-    format: UniverseThumbnailImageFormat = UniverseThumbnailImageFormat.Png,
+    userIds: number | number[],
+    size: UserAvatarHeadshotImageSize = UserAvatarHeadshotImageSize["48x48"],
+    format: UserAvatarHeadshotImageFormat = UserAvatarHeadshotImageFormat.Png,
     isCircular = false,
 
     fetchOptions?: Partial<LegacyFetchOptions>,
 ): Promise<Image[]> {
     return (
-        await this.LegacyFetchHandler.fetch<fetchUniverseThumbnailsResponse>(
+        await this.LegacyFetchHandler.fetch<fetchUserAvatarHeadshotResponse>(
             "GET",
             "ThumbnailsV1",
-            `/games/${universeId}/thumbnails`,
+            "/users/avatar-headshot",
             {
                 params: {
-                    thumbnailIds: Array.isArray(thumbnailIds) ? thumbnailIds : [thumbnailIds],
+                    userIds: Array.isArray(userIds) ? userIds : [userIds],
 
                     size: size,
                     format: format,
