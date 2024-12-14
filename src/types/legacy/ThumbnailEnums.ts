@@ -84,27 +84,27 @@ export enum GroupIconImageFormat {
     Webp = "Webp",
 }
 
-// Game Thumbnail
+// Universe Thumbnail
 
-export enum GameThumbnailImageSize {
+export enum UniverseThumbnailImageSize {
     "768x432" = "768x432",
     "576x324" = "576x324",
     "480x270" = "480x270",
     "384x216" = "256x144",
 }
 
-export enum GameThumbnailImageFormat {
+export enum UniverseThumbnailImageFormat {
     Png = "Png",
     Webp = "Webp",
 }
 
-// Game Pass
+// Universe Pass
 
-export enum GamePassImageSize {
+export enum UniversePassImageSize {
     "150x150" = "150x150",
 }
 
-export enum GamePassImageFormat {
+export enum UniversePassImageFormat {
     Png = "Png",
     Webp = "Webp",
 }
