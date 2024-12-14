@@ -64,7 +64,7 @@ export type UserBirthdate = {
     birthDay: number;
 
     /**
-     * The year of the user's birth (e.g., 1990).
+     * The year of the user's birth.
      */
     birthYear: number;
 };
