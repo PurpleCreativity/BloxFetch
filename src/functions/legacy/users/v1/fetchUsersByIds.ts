@@ -4,6 +4,7 @@ import type { partialUserDataByIds } from "../../../../types/legacy/Users.js";
 
 export type fetchUsersByIdsResponse = { data: partialUserDataByIds[] };
 export type fetchUsersByIdsOptions = { excludeBannedUsers: boolean };
+
 export type fetchUsersByIdsType = (
     this: BloxFetch,
     userIds: number | number[],
