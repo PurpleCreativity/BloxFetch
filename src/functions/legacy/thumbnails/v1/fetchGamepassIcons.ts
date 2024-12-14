@@ -27,7 +27,7 @@ export default async function (
     fetchOptions?: Partial<LegacyFetchOptions>,
 ): Promise<fetchedImage[]> {
     return (
-        await this.LegacyFetchHandler.fetch<fetchGamepassIconsResponse>("GET", "ThumbnailsV1", "/v1/badges/icons", {
+        await this.LegacyFetchHandler.fetch<fetchGamepassIconsResponse>("GET", "ThumbnailsV1", "/v1/game-passes", {
             params: {
                 gamePassIds: Array.isArray(gamePassIds) ? gamePassIds : [gamePassIds],
 
