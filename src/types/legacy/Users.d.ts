@@ -52,6 +52,8 @@ export type partialUserDataByUsernames = Pick<UserData, "name" | "displayName" |
     requestedUsername: string;
 };
 
+export type parialUserDataBySearchKeword = partialUserDataByUsernames;
+
 //
 
 export type UserBirthdate = {
