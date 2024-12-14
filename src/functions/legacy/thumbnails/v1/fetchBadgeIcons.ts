@@ -9,9 +9,9 @@ export type fetchBadgeIconsType = (
     this: BloxFetch,
 
     badgeIds: number | number[],
-    size: BadgeIconImageSize,
-    format: BadgeIconImageFormat,
-    isCircular: boolean,
+    size?: BadgeIconImageSize,
+    format?: BadgeIconImageFormat,
+    isCircular?: boolean,
 
     fetchOptions?: Partial<LegacyFetchOptions>,
 ) => Promise<fetchedImage[]>;

@@ -9,9 +9,9 @@ export type fetchGamepassIconsType = (
     this: BloxFetch,
 
     gamePassIds: number | number[],
-    size: GamePassImageSize,
-    format: GamePassImageFormat,
-    isCircular: boolean,
+    size?: GamePassImageSize,
+    format?: GamePassImageFormat,
+    isCircular?: boolean,
 
     fetchOptions?: Partial<LegacyFetchOptions>,
 ) => Promise<fetchedImage[]>;
