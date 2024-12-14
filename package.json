@@ -1,5 +1,5 @@
 {
-    "name": "@purple_creativity/bloxfetch",
+    "name": "bloxfetch",
     "version": "0.1.9",
     "description": "A promise based wrapper for the Roblox API",
     "main": "./dist/main.js",
