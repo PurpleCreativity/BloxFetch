@@ -1,31 +1,33 @@
 import LegacyFetchHandler from "./classes/internal/LegacyFetchHandler.js";
 
-import fetchUsersPresences, {
-    type fetchUsersPresencesType,
-} from "./functions/legacy/presence/v1/fetchUsersPresences.js";
-import fetchBadgeIcons, { type fetchBadgeIconsType } from "./functions/legacy/thumbnails/v1/fetchBadgeIcon.js";
-import fetchUniverseIcon, { type fetchUniverseIconType } from "./functions/legacy/thumbnails/v1/fetchUniverseIcon.js";
-import fetchUniverseThumbnails, {
-    type fetchUniverseThumbnailsType,
-} from "./functions/legacy/thumbnails/v1/fetchUniverseThumbnails.js";
-import fetchUniverseThumbnailsMultiget, {
+import {
+    fetchBadgeIcons,
+    type fetchBadgeIconsType,
+    fetchBirthdate,
+    type fetchBirthdateType,
+    fetchUniverseIcon,
+    type fetchUniverseIconType,
+    fetchUniverseThumbnails,
+    fetchUniverseThumbnailsMultiget,
     type fetchUniverseThumbnailsMultigetType,
-} from "./functions/legacy/thumbnails/v1/fetchUniverseThumbnailsMultiget.js";
-import fetchUniversepassIcon, {
+    type fetchUniverseThumbnailsType,
+    fetchUniversepassIcon,
     type fetchUniversepassIconType,
-} from "./functions/legacy/thumbnails/v1/fetchUniversepassIcon.js";
-import fetchUserAvatarHeadshot, {
+    fetchUserAvatarHeadshot,
     type fetchUserAvatarHeadshotType,
-} from "./functions/legacy/thumbnails/v1/fetchUserAvatarHeadshot.js";
-import fetchBirthdate, { type fetchBirthdateType } from "./functions/legacy/users/v1/fetchBirthdate.js";
-import fetchUserById, { type fetchUserByIdType } from "./functions/legacy/users/v1/fetchUserById.js";
-import fetchUsernameHistory, {
+    fetchUserById,
+    type fetchUserByIdType,
+    fetchUsernameHistory,
     type fetchUsernameHistoryType,
-} from "./functions/legacy/users/v1/fetchUsernameHistory.js";
-import fetchUsersByIds, { type fetchUsersByIdsType } from "./functions/legacy/users/v1/fetchUsersByIds.js";
-import fetchUsersByUsernames, {
+    fetchUsersByIds,
+    type fetchUsersByIdsType,
+    fetchUsersByUsernames,
     type fetchUsersByUsernamesType,
-} from "./functions/legacy/users/v1/fetchUsersByUsernames.js";
+    fetchUsersPresences,
+    type fetchUsersPresencesType,
+} from "./functions/legacy/barrel.js";
+
+import User from "./classes/legacy/User.js";
 
 export type * from "./types/legacy/Thumbnails.js";
 export * from "./types/legacy/Thumbnails.Enums.js";
@@ -36,6 +38,8 @@ export type * from "./types/legacy/Users.js";
 
 export type * from "./types/internal/LegacyFetchHandler.js";
 export type * from "./types/shared.js";
+
+export { User };
 
 /**
  * Main class for interacting with the Roblox API through various endpoints.
