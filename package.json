@@ -1,6 +1,6 @@
 {
     "name": "bloxfetch",
-    "version": "0.1.9",
+    "version": "0.1.0",
     "description": "A promise based wrapper for the Roblox API",
     "main": "./dist/main.js",
     "types": "./dist/main.d.ts",
