@@ -13,7 +13,7 @@
         "build": "tsup",
         "test": "jest",
         "run": "node .",
-        "start": "tsc && node .",
+        "start": "tsup && node .",
         "lint": "biome lint .",
         "lint:fix": "biome lint --write .",
         "format": "biome format .",
